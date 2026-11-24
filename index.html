@@ -1,66 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b16">
-<title>Mlindos AI Gumede — Create Anything</title>
-<style>
-:root{--bg:#090b16;--panel:#111528;--panel2:#171d34;--line:#28304b;--text:#f5f7ff;--muted:#a4aec9;--purple:#8b5cf6;--cyan:#42d9e8;--pink:#ed70c8}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#292052 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:10;background:#090b16dc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.4px}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;color:white;font-size:19px;box-shadow:0 8px 28px #8b5cf644}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:1.7px;text-transform:uppercase}.links{display:flex;gap:27px}.links a{color:var(--muted);text-decoration:none;font-size:14px}.links a:hover{color:white}.nav-cta,.primary{border:0;border-radius:12px;padding:11px 18px;color:white;font-weight:700;background:linear-gradient(110deg,var(--purple),#6756dc);box-shadow:0 8px 24px #7755dc30}.menu{display:none;background:none;color:white;border:0;font-size:24px}.hero{padding:88px 0 66px;text-align:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #8b5cf655;background:#8b5cf615;color:#c8b7ff;border-radius:30px;padding:7px 13px;font-size:12px;font-weight:700;letter-spacing:.5px}.dot{width:7px;height:7px;background:#5cf0bb;border-radius:50%;box-shadow:0 0 12px #5cf0bb}.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.04;letter-spacing:-3.5px;margin:23px auto 18px;max-width:850px}.gradient{background:linear-gradient(100deg,#b79aff,#62e2ec 55%,#f18bd4);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:18px;max-width:650px;margin:0 auto 28px}.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.secondary{background:#ffffff09;border:1px solid var(--line);color:white;border-radius:12px;padding:11px 18px;font-weight:700}.mini-proof{color:#8994b3;font-size:12px;margin-top:20px}.section{padding:58px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.kicker{color:#a995ff;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800}.section h2{font-size:clamp(27px,4vw,39px);letter-spacing:-1.4px;margin:6px 0}.sub{color:var(--muted);margin:0}.studio{background:linear-gradient(145deg,#151a30,#101426);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 24px 70px #0004}.studio-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.studio-top strong{font-size:17px}.status{font-size:11px;color:#67e7c0;background:#67e7c015;border:1px solid #67e7c033;border-radius:30px;padding:5px 10px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.tab{border:1px solid var(--line);background:#ffffff06;color:var(--muted);padding:8px 13px;border-radius:10px;font-size:13px}.tab.active{color:white;background:#8b5cf626;border-color:#8b5cf6}.prompt{width:100%;min-height:118px;resize:vertical;background:#090d1c;border:1px solid #343d5d;border-radius:14px;color:white;padding:16px;outline:none}.prompt:focus{border-color:#9b7aff;box-shadow:0 0 0 3px #8b5cf622}.studio-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:13px}.hint{font-size:12px;color:#8994b3}.generate{display:flex;gap:9px;align-items:center}.select{background:#0b1020;color:#dce3ff;border:1px solid var(--line);border-radius:10px;padding:10px}.output{display:none;margin-top:20px;padding:18px;background:#0a1020;border:1px solid #343d5d;border-radius:14px}.output.show{display:block}.output-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}.output h3{margin:0;font-size:16px}.output p{color:#c5cde4;white-space:pre-wrap;margin:8px 0}.copy{border:1px solid var(--line);background:#ffffff0a;color:white;border-radius:8px;padding:7px 11px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.tile{background:linear-gradient(145deg,#151a30,#101426);border:1px solid var(--line);border-radius:17px;padding:19px;transition:.2s}.tile:hover{transform:translateY(-4px);border-color:#8068d9}.tile-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#8b5cf633,#42d9e822);font-size:21px;margin-bottom:13px}.tile h3{margin:0 0 5px;font-size:16px}.tile p{margin:0;color:var(--muted);font-size:13px}.tile button{margin-top:15px;background:none;border:0;color:#b9a6ff;padding:0;font-size:12px;font-weight:700}.feature{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.feature-box{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(145deg,#191d37,#101426)}.feature-line{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid #ffffff12}.feature-line:last-child{border:0}.feature-line b{display:block}.feature-line span{color:var(--muted);font-size:13px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{padding:20px;border:1px solid var(--line);border-radius:16px;background:#ffffff05}.number{color:#bba8ff;font-size:12px;font-weight:800}.step h3{margin:8px 0 4px}.step p{margin:0;color:var(--muted);font-size:13px}.cta{padding:35px;border-radius:22px;text-align:center;border:1px solid #8b5cf644;background:radial-gradient(ellipse at top,#503a8a88,transparent 65%),#12162a}.cta h2{margin:0 0 8px}.cta p{color:var(--muted);margin:0 auto 20px;max-width:560px}footer{border-top:1px solid #ffffff12;padding:25px 0;color:#8791ad;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#202944;border:1px solid #485577;padding:10px 16px;border-radius:10px;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:800px){.links{display:none;position:absolute;top:76px;left:0;right:0;padding:18px 4%;background:#101426;flex-direction:column;gap:16px;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.grid{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.hero{padding:65px 0 48px}.hero h1{letter-spacing:-2px}.section{padding:42px 0}}@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:9px}.tile{padding:14px}.tile p{font-size:12px}.studio{padding:15px}.steps{grid-template-columns:1fr}.section-head{display:block}.hero p{font-size:16px}}
-</style>
-</head>
-<body>
-<header class="topbar"><div class="wrap nav">
-<a class="brand" href="#home" style="color:white;text-decoration:none"><span class="logo">M</span><span>Mlindos AI Gumede<small>CREATE • BUILD • IMAGINE</small></span></a>
-<nav class="links" id="links"><a href="#home">Home</a><a href="#studio">AI Studio</a><a href="#explore">Design</a><a href="#technology">Technology</a><a href="#about">About</a></nav>
-<a class="nav-cta" href="#studio">Start creating ↗</a><button class="menu" id="menu" aria-label="Open menu">☰</button>
-</div></header>
-<main>
-<section class="hero wrap" id="home"><div class="eyebrow"><span class="dot"></span> YOUR IDEAS, POWERED BY SMART AI</div>
-<h1>Dream it. Describe it.<br><span class="gradient">Build something amazing.</span></h1>
-<p>One creative space to turn your ideas into designs, plans, code, stories and more. Your imagination is the starting point.</p>
-<div class="hero-actions"><a class="primary" href="#studio" style="text-decoration:none">✦ Open AI Studio</a><a class="secondary" href="#explore" style="text-decoration:none">Explore what you can make</a></div><div class="mini-proof">A creative playground for makers, thinkers and curious minds.</div></section>
-<section class="section wrap" id="studio"><div class="section-head"><div><div class="kicker">The creative workspace</div><h2>What will you create today?</h2><p class="sub">Describe your idea and choose a creation mode.</p></div></div>
-<div class="studio"><div class="studio-top"><strong>✦ Mlindos Smart AI Studio</strong><span class="status">● Demo mode</span></div>
-<div class="tabs" id="tabs"><button class="tab active" data-mode="idea">💡 Ideas</button><button class="tab" data-mode="design">🎨 Design</button><button class="tab" data-mode="website">🌐 Website</button><button class="tab" data-mode="code">⌘ Code</button><button class="tab" data-mode="writing">✍️ Writing</button><button class="tab" data-mode="plan">📋 Plan</button></div>
-<textarea class="prompt" id="prompt" placeholder="Example: Create a modern clothing brand for young people. Give it a name, colours, logo direction and launch ideas..."></textarea>
-<div class="studio-controls"><span class="hint">Tip: Include your goal, audience and style for better results.</span><div class="generate"><select class="select" id="tone" aria-label="Style"><option value="creative">Creative</option><option value="professional">Professional</option><option value="simple">Simple</option><option value="bold">Bold</option></select><button class="primary" id="generate">✦ Generate</button></div></div>
-<div class="output" id="output"><div class="output-head"><h3 id="outTitle">Your creation</h3><button class="copy" id="copy">Copy result</button></div><p id="outText"></p><small class="hint" id="disclaimer">Demo output. Connect an AI service to generate original, live AI responses.</small></div>
-</div></section>
-<section class="section wrap" id="explore"><div class="section-head"><div><div class="kicker">Explore possibilities</div><h2>One platform. Many possibilities.</h2><p class="sub">Pick a starting point and let your ideas grow.</p></div></div>
-<div class="grid">
-<article class="tile"><div class="tile-icon">🎨</div><h3>Design</h3><p>Brand ideas, logos, posters, room concepts and creative direction.</p><button data-fill="design">Create a design →</button></article>
-<article class="tile"><div class="tile-icon">💻</div><h3>Technology</h3><p>App concepts, software ideas, code explanations and tech projects.</p><button data-fill="code">Explore technology →</button></article>
-<article class="tile"><div class="tile-icon">🌐</div><h3>Websites</h3><p>Plan pages, write website content and map out digital experiences.</p><button data-fill="website">Build a website →</button></article>
-<article class="tile"><div class="tile-icon">✍️</div><h3>Writing</h3><p>Stories, captions, speeches, scripts and clear everyday writing.</p><button data-fill="writing">Start writing →</button></article>
-<article class="tile"><div class="tile-icon">🚀</div><h3>Business</h3><p>Business names, startup concepts, marketing and launch plans.</p><button data-fill="idea">Build a business idea →</button></article>
-<article class="tile"><div class="tile-icon">📚</div><h3>Learning</h3><p>Study guides, explanations, learning paths and practice questions.</p><button data-fill="plan">Learn something →</button></article>
-<article class="tile"><div class="tile-icon">🎮</div><h3>Games</h3><p>Game concepts, characters, worlds, mechanics and storylines.</p><button data-fill="idea">Create a game →</button></article>
-<article class="tile"><div class="tile-icon">✨</div><h3>And more</h3><p>Explore new possibilities. If you can describe it, start here.</p><button data-fill="idea">Try an idea →</button></article>
-</div></section>
-<section class="section wrap" id="technology"><div class="feature"><div><div class="kicker">Smart tools for big ideas</div><h2>Make the complicated feel simple.</h2><p class="sub">Mlindos AI Gumede is designed as a friendly launchpad: start with a rough thought, shape it into a clear brief, then take the next step.</p></div>
-<div class="feature-box"><div class="feature-line"><div>⚡</div><div><b>Fast idea generation</b><span>Turn a blank page into a useful first draft.</span></div></div><div class="feature-line"><div>🧭</div><div><b>Guided creation</b><span>Choose a category and get a structured starting point.</span></div></div><div class="feature-line"><div>🧩</div><div><b>Many creative directions</b><span>Move between design, tech, writing and planning.</span></div></div><div class="feature-line"><div>🔒</div><div><b>Your work, your direction</b><span>Review, edit and shape every generated result.</span></div></div></div></div></section>
-<section class="section wrap" id="about"><div class="section-head"><div><div class="kicker">How it works</div><h2>From thought to next step.</h2></div></div><div class="steps"><div class="step"><span class="number">01 / DESCRIBE</span><h3>Share your idea</h3><p>Tell the studio what you want to make, even if your idea is not fully formed.</p></div><div class="step"><span class="number">02 / GENERATE</span><h3>Shape a first draft</h3><p>Choose a mode and style, then create a structured starting point.</p></div><div class="step"><span class="number">03 / BUILD</span><h3>Make it yours</h3><p>Copy your result, refine it and turn the concept into something real.</p></div></div></section>
-<section class="section wrap"><div class="cta"><div class="kicker">Your imagination has a home</div><h2>Ready to make something?</h2><p>Start with one idea. Your next project could begin right here.</p><a class="primary" href="#studio" style="text-decoration:none;display:inline-block">Start creating ✦</a></div></section>
-</main>
-<footer><div class="wrap foot"><span>© <span id="year"></span> Mlindos AI Gumede. Built for imagination.</span><span>Imagine boldly. Create responsibly.</span></div></footer><div class="toast" id="toast">Copied to clipboard</div>
-<script>
-const tabs=[...document.querySelectorAll('.tab')], promptBox=document.getElementById('prompt'), output=document.getElementById('output');
-let mode='idea';
-const starters={idea:'Help me develop this idea into something exciting: ',design:'Create a design concept for: ',website:'Plan a modern website for: ',code:'Help me build a technology project that: ',writing:'Write something engaging about: ',plan:'Create a step-by-step plan for: '};
-tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');mode=t.dataset.mode;promptBox.placeholder=starters[mode]+'describe your idea...';promptBox.focus()}));
-document.querySelectorAll('[data-fill]').forEach(b=>b.addEventListener('click',()=>{const m=b.dataset.fill;document.querySelector(`[data-mode="${m}"]`).click();document.getElementById('studio').scrollIntoView({behavior:'smooth'});promptBox.value=starters[m]}));
-const templates={
-idea:(p,t)=>`YOUR IDEA, DEVELOPED\n\n${p}\n\n1. The concept\nTurn this into a clear, memorable project with one main purpose and a specific audience.\n\n2. What makes it special\nChoose one feature or experience that makes the idea stand out. Keep the first version focused and useful.\n\n3. First steps\n• Define the audience and the problem you want to solve.\n• Sketch the simplest version of the idea.\n• Ask a few people for feedback.\n• Improve the concept and create a small first version.\n\n4. Possible next move\nCreate a short brief, prototype or launch plan and test it in the real world.`,
-design:(p,t)=>`DESIGN CREATIVE BRIEF\n\nProject: ${p}\n\nCreative direction: ${t==='bold'?'Bold, expressive and high contrast':t==='professional'?'Clean, refined and confident':t==='simple'?'Minimal, clear and easy to understand':'Fresh, modern and memorable'}\n\nColour direction: Choose one main colour, one supporting colour and a neutral background. Check contrast and readability.\n\nVisual style: Use a consistent type system, simple shapes and one recognisable visual element.\n\nDeliverables to explore:\n• Moodboard and visual references\n• Two or three layout concepts\n• Typography and colour palette\n• Final design adapted for mobile and desktop\n\nNext step: turn this brief into a visual mock-up and refine it with feedback.`,
-website:(p,t)=>`WEBSITE PROJECT BLUEPRINT\n\nProject: ${p}\n\nSuggested pages:\n1. Home — clear headline, short introduction and main call to action.\n2. About — purpose, story and what makes the project different.\n3. Services / Features — explain the value in simple sections.\n4. Gallery / Portfolio — show examples or work.\n5. Contact — make it easy to get in touch.\n\nBuild checklist:\n• Mobile-first responsive layout\n• Accessible colours and readable typography\n• Fast-loading images and clear navigation\n• Working forms, links and buttons\n• Privacy notice and basic search metadata where appropriate\n\nNext step: define the audience, page content and visual style before development.`,
-code:(p,t)=>`TECH PROJECT STARTER\n\nProject: ${p}\n\nBefore coding:\n1. Describe the problem this project solves.\n2. List the core features for version one.\n3. Choose a platform and suitable technology.\n4. Sketch the user flow and data needed.\n5. Build one small feature at a time and test it.\n\nGood development habits:\n• Keep secrets and API keys on a secure server, never in browser code.\n• Validate user input and handle errors.\n• Test on mobile and desktop.\n• Document setup and how to run the project.\n\nNext step: write a detailed technical specification, then create a working prototype.`,
-writing:(p,t)=>`WRITING DRAFT\n\n${p}\n\nStart with a strong opening that makes the reader curious. Keep the main message clear, use concrete details and organise the content into short sections. Finish with a memorable point or a clear call to action.\n\nSuggested editing pass:\n• Remove repeated ideas.\n• Replace vague words with specific details.\n• Read it aloud to check the flow.\n• Match the final tone to the intended audience.\n\nNext step: add the key facts, names and details that should appear in the final version.`,
-plan:(p,t)=>`ACTION PLAN\n\nGoal: ${p}\n\nPhase 1 — Define\nWrite down the outcome, audience, deadline and what success looks like.\n\nPhase 2 — Prepare\nBreak the work into small tasks. Identify tools, people, information and budget needed.\n\nPhase 3 — Create\nComplete the most important task first. Make a simple version before adding extras.\n\nPhase 4 — Review\nTest the result, gather feedback and fix the biggest issues.\n\nPhase 5 — Improve\nSet the next milestone and track progress weekly.\n\nFirst action: write one task you can complete today.`};
-document.getElementById('generate').addEventListener('click',async()=>{const p=promptBox.value.trim();if(!p){promptBox.focus();promptBox.placeholder='Please describe what you want to create first...';return}const tone=document.getElementById('tone').value;const btn=document.getElementById('generate');btn.disabled=true;btn.textContent='Thinking…';document.getElementById('outTitle').textContent='Mlindos AI is working';document.getElementById('outText').textContent='Generating your response…';document.getElementById('disclaimer').textContent='Connecting securely to the AI service.';output.classList.add('show');try{const response=await fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:p,mode,tone})});const data=await response.json();if(!response.ok)throw new Error(data.error||'The AI request failed.');document.getElementById('outTitle').textContent='Your creation';document.getElementById('outText').textContent=data.text;document.getElementById('disclaimer').textContent='Generated by Mlindos AI Gumede. Review the result before using it.';}catch(err){document.getElementById('outTitle').textContent='AI connection needs attention';document.getElementById('outText').textContent=err.message+'\\n\\nCheck that your site is deployed on Netlify and that OPENAI_API_KEY is saved in the site environment variables, then redeploy.';document.getElementById('disclaimer').textContent='Your secret API key is never requested in this page.';}finally{btn.disabled=false;btn.textContent='✦ Generate';output.scrollIntoView({behavior:'smooth',block:'nearest'});}});
-document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(document.getElementById('outText').textContent);const toast=document.getElementById('toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}catch(e){document.getElementById('outText').focus()}});
-document.getElementById('menu').addEventListener('click',()=>document.getElementById('links').classList.toggle('open'));
-document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script></body></html>
+
+export default async (request) => {
+  const headers = {
+    "Content-Type": "application/json"
+  };
+
+  if (request.method !== "POST") {
+    return new Response(
+      JSON.stringify({ error: "Use POST for AI requests." }),
+      { status: 405, headers }
+    );
+  }
+
+  try {
+    const apiKey = process.env.GROQ_API_KEY;
+
+    if (!apiKey) {
+      throw new Error("GROQ_API_KEY is missing in Netlify.");
+    }
+
+    const body = await request.json();
+
+    const prompt = body.prompt || body.message || "";
+
+    if (!body.messages && !prompt.trim()) {
+      return new Response(
+        JSON.stringify({ error: "Please enter a prompt." }),
+        { status: 400, headers }
+      );
+    }
+
+    const messages = Array.isArray(body.messages)
+      ? body.messages
+      : [
+          {
+            role: "system",
+            content: `You are Mlindos AI Gumede, a helpful and creative AI assistant.
+Help users with ideas, design, websites, coding, writing and planning.
+Creation mode: ${body.mode || "idea"}.
+Writing style: ${body.tone || "creative"}.
+Give useful, detailed and well-organized answers.`
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ];
+
+    const response = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-oss-120b",
+          messages,
+          temperature: 0.7,
+          max_tokens: 2048
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return new Response(
+        JSON.stringify({
+          error: data.error?.message || "Groq request failed."
+        }),
+        { status: response.status, headers }
+      );
+    }
+
+    const answer =
+      data.choices?.[0]?.message?.content || "";
+
+    return new Response(
+      JSON.stringify({
+        text: answer,
+        reply: answer
+      }),
+      { status: 200, headers }
+    );
+
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        error: error.message || "Something went wrong."
+      }),
+      { status: 500, headers }
+    );
+  }
+};
